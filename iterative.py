@@ -7,7 +7,6 @@ def combinations(number):
     solution_count = factorial(size)
     combi = []
     combi.append(number)
-    print(combi)
     i=0
     while i<solution_count:
         j=1
@@ -20,8 +19,6 @@ def combinations(number):
                 combi.append(temp)
             j+=1
         i+=1
-    print("ans count :")
-    print(len(combi))
     print(combi)
     
 number=12345
