@@ -5,49 +5,11 @@ def factorial(number):
 def combinations(number):
     size=len(number)
     solution_count = factorial(size)
-    solution_count_copy=solution_count
     combi = []
     combi.append(number)
-    solution_count-=1
-    index=0
     print(combi)
-    while index<size:
-        if (index%2==1) and (index!=0):
-            temp=number.copy()
-            temp[index] = number[index-1]
-            temp[index-1] = number[index]
-            combi.append(temp)
-            solution_count-=1
-        index+=1
-    index=0
-    while index<size:
-        if (index%2==0) and (index!=0):
-            temp=number.copy()
-            temp[index] = number[index-1]
-            temp[index-1] = number[index]
-            combi.append(temp)
-            solution_count-=1
-        index+=1
-    #reverse collected thus far
     i=0
-    stopping_condition=(solution_count_copy-solution_count)
-    while i<stopping_condition:
-        j=0
-        temp = combi[i]
-        temp_r =[]
-        while j<size:
-            temp_r.insert(0, (temp[j]))
-            j+=1
-        combi.append(temp_r)
-        solution_count-=1
-        i+=1
-        if solution_count==0: break
-    print("combinations :")
-    print(combi)
-
-    #permutations of combinations
-    i=0
-    while i<solution_count_copy:
+    while i<solution_count:
         j=1
         while j<size:
             temp=combi[i].copy()
@@ -56,10 +18,9 @@ def combinations(number):
             temp.insert(0, t)
             if temp not in combi: 
                 combi.append(temp)
-                solution_count-=1
             j+=1
         i+=1
-    print("permutations :")
+    print("ans count :")
     print(len(combi))
     print(combi)
     
